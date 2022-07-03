@@ -19,6 +19,42 @@
             console.log(computerPlay());
         }
         // Take the user's entry and compare to computer's entry to see who wins after a single round
+        function playRound(playerSelection, computerSelection) {
+            const lose1 = 'You Lose! Paper beats Rock!'
+            const lose2 = 'You Lose! Rock beats Scissors'
+            const lose3 = 'You Lose! Scissors beats Paper!'
+            const win1 = 'You Win! Paper beats Rock!'
+            const win2 = 'You Win! Rock beats Scissors'
+            const win3 = 'You Win! Scissors beats Paper!'
+            const draw = 'Draw! You both picked the same!'
+
+            if (toLowerCase(playerSelection) === 'rock' && computerSelection === 'Paper') {
+                return lose1;
+            }
+            if (toLowerCase(playerSelection) === 'scissors' && computerSelection === 'Rock') {
+                return lose2;
+            }
+            if (toLowerCase(playerSelection) === 'paper' && computerSelection === 'Scissors') {
+                return lose3;
+            }
+            if (toLowerCase(playerSelection) === 'paper' && computerSelection === 'Rock') {
+                return win1;
+            }
+            if (toLowerCase(playerSelection) === 'rock' && computerSelection === 'Scissors') {
+                return win2;
+            }
+            if (toLowerCase(playerSelection) === 'scissors' && computerSelection === 'Paper') {
+                return win3;
+            }
+            if (toLowerCase(playerSelection) === toLowerCase(computerSelection)) {
+                return draw;
+            }
+        }
+        // Record player's selection
+        const playerSelection = 'rock'
+        const computerSelection = computerPlay();
+        console.log(playRound(playerSelection, computerSelection));
+
         // Create function to keep track of scores during a 5 round game and return the winner
     </script>
     
