@@ -28,25 +28,25 @@
             const win3 = 'You Win! Scissors beats Paper!'
             const draw = 'Draw! You both picked the same!'
 
-            if (toLowerCase(playerSelection) === 'rock' && computerSelection === 'Paper') {
+            if (playerSelection.toLowerCase() === 'rock' && computerSelection === 'Paper') {
                 return lose1;
             }
-            if (toLowerCase(playerSelection) === 'scissors' && computerSelection === 'Rock') {
+            if (playerSelection.toLowerCase() === 'scissors' && computerSelection === 'Rock') {
                 return lose2;
             }
-            if (toLowerCase(playerSelection) === 'paper' && computerSelection === 'Scissors') {
+            if (playerSelection.toLowerCase() === 'paper' && computerSelection === 'Scissors') {
                 return lose3;
             }
-            if (toLowerCase(playerSelection) === 'paper' && computerSelection === 'Rock') {
+            if (playerSelection.toLowerCase() === 'paper' && computerSelection === 'Rock') {
                 return win1;
             }
-            if (toLowerCase(playerSelection) === 'rock' && computerSelection === 'Scissors') {
+            if (playerSelection.toLowerCase() === 'rock' && computerSelection === 'Scissors') {
                 return win2;
             }
-            if (toLowerCase(playerSelection) === 'scissors' && computerSelection === 'Paper') {
+            if (playerSelection.toLowerCase() === 'scissors' && computerSelection === 'Paper') {
                 return win3;
             }
-            if (toLowerCase(playerSelection) === toLowerCase(computerSelection)) {
+            if (playerSelection.toLowerCase() === computerSelection.toLowerCase()) {
                 return draw;
             }
         }
