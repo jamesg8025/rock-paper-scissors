@@ -20,6 +20,7 @@
         }
         // Take the user's entry and compare to computer's entry to see who wins after a single round
         function playRound(playerSelection, computerSelection) {
+            // Win/loss case messages
             const lose1 = 'You Lose! Paper beats Rock!'
             const lose2 = 'You Lose! Rock beats Scissors'
             const lose3 = 'You Lose! Scissors beats Paper!'
@@ -28,6 +29,7 @@
             const win3 = 'You Win! Scissors beats Paper!'
             const draw = 'Draw! You both picked the same!'
 
+            // Win/Loss if cases
             if (playerSelection.toLowerCase() === 'rock' && computerSelection === 'Paper') {
                 return lose1;
             }
