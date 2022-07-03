@@ -14,18 +14,20 @@
             // Create an array of possible choices
             let choices = ['Rock', 'Paper', 'Scissors'];
             // Randomly select from choices array
-            let computerSelection = choices[Math.floor(Math.random() * choices.length)];
-            return computerSelection;
+            let computerChoice = choices[Math.floor(Math.random() * choices.length)];
+            return computerChoice;
             console.log(computerPlay());
         }
         // Create function to get entry from player
-        function playerSelection() {
-            let entry = prompt('Choose: Rock, Paper, or Scissors');
-            entry = entry.toLowerCase();
-            console.log(entry);
+        function playerPlay() {
+            let playerChoice = prompt('Choose: Rock, Paper, or Scissors');
+            playerChoice = entry.toLowerCase();
+            console.log(playerChoice);
         }
         // Take the user's entry and compare to computer's entry to see who wins after a single round
         function playRound(playerSelection, computerSelection) {
+            const playerSelection = playerPlay();
+            const computerSelection = computerPlay();
             // Win/loss case messages
             const lose1 = 'You Lose! Paper beats Rock!'
             const lose2 = 'You Lose! Rock beats Scissors'
