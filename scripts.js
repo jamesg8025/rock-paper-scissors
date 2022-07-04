@@ -1,5 +1,5 @@
 const lose1 = 'You Lose! Paper beats Rock!'
-const lose2 = 'You Lose! Rock beats Scissors'
+const lose2 = 'You Lose! Rock beats Scissors!'
 const lose3 = 'You Lose! Scissors beats Paper!'
 const win1 = 'You Win! Paper beats Rock!'
 const win2 = 'You Win! Rock beats Scissors'
@@ -20,6 +20,8 @@ function game() {
         playRound(i);
     }
     logWins();
+    // computerScore = trackComputerScore();
+    // playerScore = trackPlayerScore();
     if (playerScore < computerScore) {
         console.log('Sorry! Computer wins!');
     } else if (playerScore > computerScore){
@@ -90,21 +92,27 @@ function checkRoundWin(choiceP, choiceC) {
 
     // Win/Loss if cases
     if (choiceP === 'rock' && choiceC === 'paper') {
+        computerScore++;
         return lose1;
     }
     if (choiceP === 'scissors' && choiceC === 'rock') {
+        computerScore++;
         return lose2;
     }
     if (choiceP === 'paper' && choiceC === 'scissors') {
+        computerScore++;
         return lose3;
     }
     if (choiceP === 'paper' && choiceC === 'rock') {
+        playerScore++;
         return win1;
     }
     if (choiceP === 'rock' && choiceC === 'scissors') {
+        playerScore++;
         return win2;
     }
     if (choiceP === 'scissors' && choiceC === 'paper') {
+        playerScore++;
         return win3;
     }
     if (choiceP === choiceC) {
@@ -112,31 +120,33 @@ function checkRoundWin(choiceP, choiceC) {
     }
 }
 
-function trackComputerScore() {
-    const playerSelection = playerPlay();
-    const computerSelection = computerPlay();
+// function trackComputerScore() {
+//     let computerScore = 0;
+//     const playerSelection = playerPlay();
+//     const computerSelection = computerPlay();
 
-    if (checkRoundWin(playerSelection, computerSelection) === lose1 || 
-    checkRoundWin(playerSelection, computerSelection) === lose2 || 
-    checkRoundWin(playerSelection, computerSelection) === lose3) {
-        computerScore++;
-    }
-    console.log(computerScore);
-    return computerScore;
-}
+//     if (checkRoundWin(playerSelection, computerSelection) === lose1 || 
+//     checkRoundWin(playerSelection, computerSelection) === lose2 || 
+//     checkRoundWin(playerSelection, computerSelection) === lose3) {
+//         computerScore++;
+//     }
+//     console.log(computerScore);
+//     return computerScore;
+// }
 
-function trackPlayerScore() {
-    const playerSelection = playerPlay();
-    const computerSelection = computerPlay();
+// function trackPlayerScore() {
+//     let playerScore = 0;
+//     const playerSelection = playerPlay();
+//     const computerSelection = computerPlay();
 
-    if (checkRoundWin(playerSelection, computerSelection) === win1 || 
-    checkRoundWin(playerSelection, computerSelection) === win2 || 
-    checkRoundWin(playerSelection, computerSelection) === win3) {
-        playerScore++;
-    }
-    console.log(playerScore);
-    return playerScore;
-}
+//     if (checkRoundWin(playerSelection, computerSelection) === win1 || 
+//     checkRoundWin(playerSelection, computerSelection) === win2 || 
+//     checkRoundWin(playerSelection, computerSelection) === win3) {
+//         playerScore++;
+//     }
+//     console.log(playerScore);
+//     return playerScore;
+// }
 
 // This function logs and displays winners in the console
 function logWins() {
