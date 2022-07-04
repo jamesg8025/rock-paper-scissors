@@ -1,15 +1,7 @@
-const lose1 = 'You Lose! Paper beats Rock!'
-const lose2 = 'You Lose! Rock beats Scissors!'
-const lose3 = 'You Lose! Scissors beats Paper!'
-const win1 = 'You Win! Paper beats Rock!'
-const win2 = 'You Win! Rock beats Scissors'
-const win3 = 'You Win! Scissors beats Paper!'
-const draw = 'Draw! You both picked the same!'
-
 // Create array of possible choices - all lowercase
 const choices = ['rock', 'paper', 'scissors']
-// Create empty array to log winners
-const winners = []
+// // Create empty array to log winners
+// const winners = []
 
 let playerScore = 0;
 let computerScore = 0;
@@ -19,9 +11,9 @@ function game() {
     for (let i = 0; i < 5; i++) {
         playRound(i);
     }
-    logWins();
-    // computerScore = trackComputerScore();
-    // playerScore = trackPlayerScore();
+    // logWins();
+
+    // Compare the two scores after five rounds and determine who won the game
     if (playerScore < computerScore) {
         console.log('Sorry! Computer wins!');
     } else if (playerScore > computerScore){
@@ -39,9 +31,9 @@ function playRound() {
     console.log('Computer chose:', computerSelection);
     const roundWinner = checkRoundWin(playerSelection, computerSelection);
     console.log(roundWinner);
-    const winner = checkRoundWin(playerSelection, computerSelection);
-    // This function pushes a new winner into the winners array
-    winners.push(winner);
+    // const winner = checkRoundWin(playerSelection, computerSelection);
+    // // This function pushes a new winner into the winners array
+    // winners.push(winner);
 
 }
 
@@ -82,15 +74,15 @@ function computerPlay() {
 // Take the user's entry and compare to computer's entry to see who wins after a single round
 function checkRoundWin(choiceP, choiceC) {
     // Win/loss case messages
-    // const lose1 = 'You Lose! Paper beats Rock!'
-    // const lose2 = 'You Lose! Rock beats Scissors'
-    // const lose3 = 'You Lose! Scissors beats Paper!'
-    // const win1 = 'You Win! Paper beats Rock!'
-    // const win2 = 'You Win! Rock beats Scissors'
-    // const win3 = 'You Win! Scissors beats Paper!'
-    // const draw = 'Draw! You both picked the same!'
+    const lose1 = 'You Lose! Paper beats Rock!'
+    const lose2 = 'You Lose! Rock beats Scissors'
+    const lose3 = 'You Lose! Scissors beats Paper!'
+    const win1 = 'You Win! Paper beats Rock!'
+    const win2 = 'You Win! Rock beats Scissors'
+    const win3 = 'You Win! Scissors beats Paper!'
+    const draw = 'Draw! You both picked the same!'
 
-    // Win/Loss if cases
+    // Win/Loss if cases also increment scores
     if (choiceP === 'rock' && choiceC === 'paper') {
         computerScore++;
         return lose1;
@@ -120,37 +112,9 @@ function checkRoundWin(choiceP, choiceC) {
     }
 }
 
-// function trackComputerScore() {
-//     let computerScore = 0;
-//     const playerSelection = playerPlay();
-//     const computerSelection = computerPlay();
-
-//     if (checkRoundWin(playerSelection, computerSelection) === lose1 || 
-//     checkRoundWin(playerSelection, computerSelection) === lose2 || 
-//     checkRoundWin(playerSelection, computerSelection) === lose3) {
-//         computerScore++;
-//     }
-//     console.log(computerScore);
-//     return computerScore;
+// // This function logs and displays winners in the console
+// function logWins() {
+//     console.log(winners);
 // }
-
-// function trackPlayerScore() {
-//     let playerScore = 0;
-//     const playerSelection = playerPlay();
-//     const computerSelection = computerPlay();
-
-//     if (checkRoundWin(playerSelection, computerSelection) === win1 || 
-//     checkRoundWin(playerSelection, computerSelection) === win2 || 
-//     checkRoundWin(playerSelection, computerSelection) === win3) {
-//         playerScore++;
-//     }
-//     console.log(playerScore);
-//     return playerScore;
-// }
-
-// This function logs and displays winners in the console
-function logWins() {
-    console.log(winners);
-}
 
 game();
