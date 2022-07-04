@@ -1,11 +1,14 @@
 // Create array of possible choices - all lowercase
 const choices = ['rock', 'paper', 'scissors']
+// Create empty array to log winners
+const winners = []
 
 // Function to loop through five rounds and decide game winner
 function game() {
     for (let i = 0; i < 5; i++) {
         playRound(i);
     }
+    logWins();
 }
 
 // Plays one round and determines winner after
@@ -16,6 +19,9 @@ function playRound() {
     console.log('Computer chose:', computerSelection);
     const roundWinner = checkRoundWin(playerSelection, computerSelection);
     console.log(roundWinner);
+    const winner = checkRoundWin(playerSelection, computerSelection);
+    // This function pushes a new winner into the winners array
+    winners.push(winner);
 
 }
 
@@ -86,6 +92,10 @@ function checkRoundWin(choiceP, choiceC) {
     if (choiceP === choiceC) {
         return draw;
     }
+}
+
+function logWins() {
+
 }
 
 game();
