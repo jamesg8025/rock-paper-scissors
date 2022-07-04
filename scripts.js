@@ -32,6 +32,11 @@ function playerPlay () {
     console.log(playerChoice);
 }
 
+// Validate user input is in choices array
+function validatePlayerChoice(choice) {
+    return (choices.includes(choice));
+}
+
 // Get random entry from computer
 function computerPlay() {
     // Randomly select from choices array
