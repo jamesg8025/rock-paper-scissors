@@ -94,8 +94,9 @@ function checkRoundWin(choiceP, choiceC) {
     }
 }
 
+// This function logs and displays winners in the console
 function logWins() {
-
+    console.log(winners);
 }
 
 game();
