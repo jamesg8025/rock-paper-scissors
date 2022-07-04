@@ -1,7 +1,18 @@
+const lose1 = 'You Lose! Paper beats Rock!'
+const lose2 = 'You Lose! Rock beats Scissors'
+const lose3 = 'You Lose! Scissors beats Paper!'
+const win1 = 'You Win! Paper beats Rock!'
+const win2 = 'You Win! Rock beats Scissors'
+const win3 = 'You Win! Scissors beats Paper!'
+const draw = 'Draw! You both picked the same!'
+
 // Create array of possible choices - all lowercase
 const choices = ['rock', 'paper', 'scissors']
 // Create empty array to log winners
 const winners = []
+
+let playerScore = 0;
+let computerScore = 0;
 
 // Function to loop through five rounds and decide game winner
 function game() {
@@ -62,13 +73,13 @@ function computerPlay() {
 // Take the user's entry and compare to computer's entry to see who wins after a single round
 function checkRoundWin(choiceP, choiceC) {
     // Win/loss case messages
-    const lose1 = 'You Lose! Paper beats Rock!'
-    const lose2 = 'You Lose! Rock beats Scissors'
-    const lose3 = 'You Lose! Scissors beats Paper!'
-    const win1 = 'You Win! Paper beats Rock!'
-    const win2 = 'You Win! Rock beats Scissors'
-    const win3 = 'You Win! Scissors beats Paper!'
-    const draw = 'Draw! You both picked the same!'
+    // const lose1 = 'You Lose! Paper beats Rock!'
+    // const lose2 = 'You Lose! Rock beats Scissors'
+    // const lose3 = 'You Lose! Scissors beats Paper!'
+    // const win1 = 'You Win! Paper beats Rock!'
+    // const win2 = 'You Win! Rock beats Scissors'
+    // const win3 = 'You Win! Scissors beats Paper!'
+    // const draw = 'Draw! You both picked the same!'
 
     // Win/Loss if cases
     if (choiceP === 'rock' && choiceC === 'paper') {
@@ -92,6 +103,32 @@ function checkRoundWin(choiceP, choiceC) {
     if (choiceP === choiceC) {
         return draw;
     }
+}
+
+function trackComputerScore() {
+    const playerSelection = playerPlay();
+    const computerSelection = computerPlay();
+
+    if (checkRoundWin(playerSelection, computerSelection) === lose1 || 
+    checkRoundWin(playerSelection, computerSelection) === lose2 || 
+    checkRoundWin(playerSelection, computerSelection) === lose3) {
+        computerScore++;
+    }
+    console.log(computerScore)
+    return computerScore;
+}
+
+function trackPlayerScore() {
+    const playerSelection = playerPlay();
+    const computerSelection = computerPlay();
+
+    if (checkRoundWin(playerSelection, computerSelection) === win1 || 
+    checkRoundWin(playerSelection, computerSelection) === win2 || 
+    checkRoundWin(playerSelection, computerSelection) === win3) {
+        playerScore++;
+    }
+    console.log(playerScore)
+    return playerScore;
 }
 
 // This function logs and displays winners in the console
