@@ -16,13 +16,15 @@ function playRound() {
 // Function to get player's entry
 function playerPlay () {
     let playerChoice = prompt('Choose: Rock, Paper, or Scissors');
+    // This is in case player presses 'Cancel'
     while (playerChoice == null) {
         playerChoice = prompt('Choose: Rock, Paper, or Scissors');
     }
     playerChoice = playerChoice.toLowerCase();
     let check = validatePlayerChoice(playerChoice);
     while (check == false) {
-        prompt('Must choose between: Rock, Paper or Scissors!');
+        // Reassign playerChoice to whatever they type based on the prompt - this stops the infinite reprompting
+        playerChoice = prompt('Must choose between: Rock, Paper or Scissors!');
         while (playerChoice == null) {
         playerChoice = prompt('Choose: Rock, Paper, or Scissors');
     }
