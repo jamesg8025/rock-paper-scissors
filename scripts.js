@@ -20,6 +20,13 @@ function game() {
         playRound(i);
     }
     logWins();
+    if (playerScore < computerScore) {
+        console.log('Sorry! Computer wins!');
+    } else if (playerScore > computerScore){
+        console.log('Congrats! You win!');
+    } else {
+        console.log('Tie!');
+    }
 }
 
 // Plays one round and determines winner after
@@ -114,7 +121,7 @@ function trackComputerScore() {
     checkRoundWin(playerSelection, computerSelection) === lose3) {
         computerScore++;
     }
-    console.log(computerScore)
+    console.log(computerScore);
     return computerScore;
 }
 
@@ -127,7 +134,7 @@ function trackPlayerScore() {
     checkRoundWin(playerSelection, computerSelection) === win3) {
         playerScore++;
     }
-    console.log(playerScore)
+    console.log(playerScore);
     return playerScore;
 }
 
