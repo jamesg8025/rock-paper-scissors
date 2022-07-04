@@ -18,25 +18,26 @@ function playerPlay () {
     let playerChoice = prompt('Choose: Rock, Paper, or Scissors');
     // This is in case player presses 'Cancel'
     while (playerChoice == null) {
-        playerChoice = prompt('Choose: Rock, Paper, or Scissors');
+        playerChoice = prompt('Choose something! Rock, Paper, or Scissors');
     }
     playerChoice = playerChoice.toLowerCase();
     let check = validatePlayerChoice(playerChoice);
+    // In case user entry is not in choices array
     while (check == false) {
         // Reassign playerChoice to whatever they type based on the prompt - this stops the infinite reprompting
         playerChoice = prompt('Must choose between: Rock, Paper or Scissors!');
         while (playerChoice == null) {
-        playerChoice = prompt('Choose: Rock, Paper, or Scissors');
-    }
+            playerChoice = prompt('Choose something! Rock, Paper, or Scissors');
+        }
         playerChoice = playerChoice.toLowerCase();
-        check = validatePlayerChoice();
+        check = validatePlayerChoice(playerChoice);
     }
-    console.log(playerChoice);
+    // console.log(playerChoice);
 }
 
 // Validate user input is in choices array
 function validatePlayerChoice(choice) {
-    return (choices.includes(choice));
+    return choices.includes(choice);
 }
 
 // Get random entry from computer
