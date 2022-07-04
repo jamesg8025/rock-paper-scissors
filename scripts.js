@@ -7,11 +7,11 @@ function game() {
 }
 
 // Plays one round and determines winner after
-function playRound() {
-    const playerSelection = playerPlay();
-    const computerSelection = computerPlay();
+// function playRound() {
+//     const playerSelection = playerPlay();
+//     const computerSelection = computerPlay();
 
-}
+// }
 
 // Function to get player's entry
 function playerPlay () {
@@ -32,7 +32,7 @@ function playerPlay () {
         playerChoice = playerChoice.toLowerCase();
         check = validatePlayerChoice(playerChoice);
     }
-    // console.log(playerChoice);
+    console.log(playerChoice);
 }
 
 // Validate user input is in choices array
@@ -44,7 +44,45 @@ function validatePlayerChoice(choice) {
 function computerPlay() {
     // Randomly select from choices array
     let computerChoice = choices[Math.floor(Math.random() * choices.length)];
+    console.log(computerChoice);
     return computerChoice;
+}
+
+// Take the user's entry and compare to computer's entry to see who wins after a single round
+function playRound(playerSelection, computerSelection) {
+    const playerSelection = playerPlay();
+    const computerSelection = computerPlay();
+    // Win/loss case messages
+    const lose1 = 'You Lose! Paper beats Rock!'
+    const lose2 = 'You Lose! Rock beats Scissors'
+    const lose3 = 'You Lose! Scissors beats Paper!'
+    const win1 = 'You Win! Paper beats Rock!'
+    const win2 = 'You Win! Rock beats Scissors'
+    const win3 = 'You Win! Scissors beats Paper!'
+    const draw = 'Draw! You both picked the same!'
+
+    // Win/Loss if cases
+    if (playerSelection === 'rock' && computerSelection === 'paper') {
+        return lose1;
+    }
+    if (playerSelection === 'scissors' && computerSelection === 'rock') {
+        return lose2;
+    }
+    if (playerSelection === 'paper' && computerSelection === 'scissors') {
+        return lose3;
+    }
+    if (playerSelection === 'paper' && computerSelection === 'rock') {
+        return win1;
+    }
+    if (playerSelection === 'rock' && computerSelection === 'scissors') {
+        return win2;
+    }
+    if (playerSelection === 'scissors' && computerSelection === 'paper') {
+        return win3;
+    }
+    if (playerSelection === computerSelection) {
+        return draw;
+    }
 }
 
 game();
