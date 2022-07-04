@@ -3,15 +3,21 @@ const choices = ['rock', 'paper', 'scissors']
 
 // Function to loop through five rounds and decide game winner
 function game() {
-    playRound();
+    for (let i = 0; i < 5; i++) {
+        playRound(i);
+    }
 }
 
 // Plays one round and determines winner after
-// function playRound() {
-//     const playerSelection = playerPlay();
-//     const computerSelection = computerPlay();
+function playRound() {
+    const playerSelection = playerPlay();
+    console.log('You chose:', playerSelection);
+    const computerSelection = computerPlay();
+    console.log('Computer chose:', computerSelection);
+    const roundWinner = checkRoundWin(playerSelection, computerSelection);
+    console.log(roundWinner);
 
-// }
+}
 
 // Function to get player's entry
 function playerPlay () {
@@ -32,7 +38,7 @@ function playerPlay () {
         playerChoice = playerChoice.toLowerCase();
         check = validatePlayerChoice(playerChoice);
     }
-    console.log(playerChoice);
+    return playerChoice;
 }
 
 // Validate user input is in choices array
@@ -44,7 +50,6 @@ function validatePlayerChoice(choice) {
 function computerPlay() {
     // Randomly select from choices array
     let computerChoice = choices[Math.floor(Math.random() * choices.length)];
-    console.log(computerChoice);
     return computerChoice;
 }
 
