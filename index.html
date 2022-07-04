@@ -9,57 +9,73 @@
 </head>
 <body>
     <script>
-        // Make computer return either Rock, Paper, or Scissors randomly
-        function computerPlay() {
-            // Create an array of possible choices
-            let choices = ['Rock', 'Paper', 'Scissors'];
-            // Randomly select from choices array
-            let computerChoice = choices[Math.floor(Math.random() * choices.length)];
-            return computerChoice;
-            console.log(computerPlay());
-        }
-        // Create function to get entry from player
-        function playerPlay() {
-            let playerChoice = prompt('Choose: Rock, Paper, or Scissors');
-            playerChoice = entry.toLowerCase();
-            console.log(playerChoice);
-        }
-        // Take the user's entry and compare to computer's entry to see who wins after a single round
-        function playRound(playerSelection, computerSelection) {
-            const playerSelection = playerPlay();
-            const computerSelection = computerPlay();
-            // Win/loss case messages
-            const lose1 = 'You Lose! Paper beats Rock!'
-            const lose2 = 'You Lose! Rock beats Scissors'
-            const lose3 = 'You Lose! Scissors beats Paper!'
-            const win1 = 'You Win! Paper beats Rock!'
-            const win2 = 'You Win! Rock beats Scissors'
-            const win3 = 'You Win! Scissors beats Paper!'
-            const draw = 'Draw! You both picked the same!'
+        // Create an array of possible choices
+        // let choices = ['Rock', 'Paper', 'Scissors'];
+        // // Make computer return either Rock, Paper, or Scissors randomly
+        // function computerPlay() {
+        //     // Randomly select from choices array
+        //     let computerChoice = choices[Math.floor(Math.random() * choices.length)];
+        //     return computerChoice;
+        //     console.log(computerPlay());
+        // }
+        // // Create function to get entry from player
+        // function playerPlay() {
+        //     let playerChoice = prompt('Choose: Rock, Paper, or Scissors');
+        //     while (playerChoice == null) {
+        //         playerChoice = prompt('Choose: Rock, Paper, or Scissors');
+        //     }
+        //     playerChoice = playerChoice.toLowerCase();
+        //     let check = validatePlayerChoice(playerChoice);
+        //     while (check == false) {
+        //         prompt('Must choose between: Rock, Paper or Scissors!');
+        //         while (playerChoice == null) {
+        //         playerChoice = prompt('Choose: Rock, Paper, or Scissors');
+        //     }
+        //         playerChoice = playerChoice.toLowerCase();
+        //         check = validatePlayerChoice();
+        //     }
+        // }
 
-            // Win/Loss if cases
-            if (playerSelection.toLowerCase() === 'rock' && computerSelection === 'Paper') {
-                return lose1;
-            }
-            if (playerSelection.toLowerCase() === 'scissors' && computerSelection === 'Rock') {
-                return lose2;
-            }
-            if (playerSelection.toLowerCase() === 'paper' && computerSelection === 'Scissors') {
-                return lose3;
-            }
-            if (playerSelection.toLowerCase() === 'paper' && computerSelection === 'Rock') {
-                return win1;
-            }
-            if (playerSelection.toLowerCase() === 'rock' && computerSelection === 'Scissors') {
-                return win2;
-            }
-            if (playerSelection.toLowerCase() === 'scissors' && computerSelection === 'Paper') {
-                return win3;
-            }
-            if (playerSelection.toLowerCase() === computerSelection.toLowerCase()) {
-                return draw;
-            }
-        }
+        // // Validate user input is in choices array
+        // function validatePlayerChoice(choice) {
+        //     return (choices.includes(choice));
+        // }
+        // Take the user's entry and compare to computer's entry to see who wins after a single round
+        // function playRound(playerSelection, computerSelection) {
+        //     const playefrSelection = playerPlay();
+        //     const compufterSelection = computerPlay();
+        //     // Win/loss case messages
+        //     const lose1 = 'You Lose! Paper beats Rock!'
+        //     const lose2 = 'You Lose! Rock beats Scissors'
+        //     const lose3 = 'You Lose! Scissors beats Paper!'
+        //     const win1 = 'You Win! Paper beats Rock!'
+        //     const win2 = 'You Win! Rock beats Scissors'
+        //     const win3 = 'You Win! Scissors beats Paper!'
+        //     const draw = 'Draw! You both picked the same!'
+
+        //     // Win/Loss if cases
+        //     if (playerSelection.toLowerCase() === 'rock' && computerSelection === 'Paper') {
+        //         return lose1;
+        //     }
+        //     if (playerSelection.toLowerCase() === 'scissors' && computerSelection === 'Rock') {
+        //         return lose2;
+        //     }
+        //     if (playerSelection.toLowerCase() === 'paper' && computerSelection === 'Scissors') {
+        //         return lose3;
+        //     }
+        //     if (playerSelection.toLowerCase() === 'paper' && computerSelection === 'Rock') {
+        //         return win1;
+        //     }
+        //     if (playerSelection.toLowerCase() === 'rock' && computerSelection === 'Scissors') {
+        //         return win2;
+        //     }
+        //     if (playerSelection.toLowerCase() === 'scissors' && computerSelection === 'Paper') {
+        //         return win3;
+        //     }
+        //     if (playerSelection.toLowerCase() === computerSelection.toLowerCase()) {
+        //         return draw;
+        //     }
+        // }
 
         // Create function to keep track of scores during a 5 round game and return the winner
         // function game() {
