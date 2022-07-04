@@ -15,9 +15,9 @@ function game() {
 
     // Compare the two scores after five rounds and determine who won the game
     if (playerScore < computerScore) {
-        console.log('Sorry! Computer wins!');
+        console.log('Sorry! Computer wins the game!');
     } else if (playerScore > computerScore){
-        console.log('Congrats! You win!');
+        console.log('Congrats! You win the game!');
     } else {
         console.log('Tie!');
     }
