@@ -49,9 +49,7 @@ function computerPlay() {
 }
 
 // Take the user's entry and compare to computer's entry to see who wins after a single round
-function playRound(playerSelection, computerSelection) {
-    const playerSelection = playerPlay();
-    const computerSelection = computerPlay();
+function checkRoundWin(choiceP, choiceC) {
     // Win/loss case messages
     const lose1 = 'You Lose! Paper beats Rock!'
     const lose2 = 'You Lose! Rock beats Scissors'
@@ -62,25 +60,25 @@ function playRound(playerSelection, computerSelection) {
     const draw = 'Draw! You both picked the same!'
 
     // Win/Loss if cases
-    if (playerSelection === 'rock' && computerSelection === 'paper') {
+    if (choiceP === 'rock' && choiceC === 'paper') {
         return lose1;
     }
-    if (playerSelection === 'scissors' && computerSelection === 'rock') {
+    if (choiceP === 'scissors' && choiceC === 'rock') {
         return lose2;
     }
-    if (playerSelection === 'paper' && computerSelection === 'scissors') {
+    if (choiceP === 'paper' && choiceC === 'scissors') {
         return lose3;
     }
-    if (playerSelection === 'paper' && computerSelection === 'rock') {
+    if (choiceP === 'paper' && choiceC === 'rock') {
         return win1;
     }
-    if (playerSelection === 'rock' && computerSelection === 'scissors') {
+    if (choiceP === 'rock' && choiceC === 'scissors') {
         return win2;
     }
-    if (playerSelection === 'scissors' && computerSelection === 'paper') {
+    if (choiceP === 'scissors' && choiceC === 'paper') {
         return win3;
     }
-    if (playerSelection === computerSelection) {
+    if (choiceP === choiceC) {
         return draw;
     }
 }
