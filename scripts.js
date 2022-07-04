@@ -13,9 +13,23 @@ function playRound() {
 
 }
 
-// Function to get entry from player
+// Function to get player's entry
 function playerPlay () {
-
+    let playerChoice = prompt('Choose: Rock, Paper, or Scissors');
+    while (playerChoice == null) {
+        playerChoice = prompt('Choose: Rock, Paper, or Scissors');
+    }
+    playerChoice = playerChoice.toLowerCase();
+    let check = validatePlayerChoice(playerChoice);
+    while (check == false) {
+        prompt('Must choose between: Rock, Paper or Scissors!');
+        while (playerChoice == null) {
+        playerChoice = prompt('Choose: Rock, Paper, or Scissors');
+    }
+        playerChoice = playerChoice.toLowerCase();
+        check = validatePlayerChoice();
+    }
+    console.log(playerChoice);
 }
 
 // Get random entry from computer
@@ -24,3 +38,5 @@ function computerPlay() {
     let computerChoice = choices[Math.floor(Math.random() * choices.length)];
     return computerChoice;
 }
+
+game();
