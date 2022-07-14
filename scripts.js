@@ -110,6 +110,16 @@ function checkRoundWin(choiceP, choiceC) {
     }
 }
 
+
+const container = document.querySelector('.container');
+
+const buttons = document.createElement('button');
+
+buttons.addEventListener('click', () => {
+    playRound();
+});
+
+
 // // This function logs and displays winners in the console
 // function logWins() {
 //     console.log(winners);
