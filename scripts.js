@@ -8,10 +8,9 @@ let computerScore = 0;
 
 // Function to loop through five rounds and decide game winner
 function game() {
-    for (let i = 0; i < 5; i++) {
-        playRound(i);
-    }
-    // logWins();
+    // for (let i = 0; i < 5; i++) {
+    //     playRound(i);
+    // }
 
     // Compare the two scores after five rounds and determine who won the game
     if (playerScore < computerScore) {
@@ -34,7 +33,6 @@ function playRound() {
     // const winner = checkRoundWin(playerSelection, computerSelection);
     // // This function pushes a new winner into the winners array
     // winners.push(winner);
-
 }
 
 // Function to get player's entry
