@@ -111,13 +111,13 @@ function checkRoundWin(choiceP, choiceC) {
 }
 
 
-const container = document.querySelector('.container');
+// const buttons = document.querySelectorAll('button');
 
-const buttons = document.createElement('button');
-
-buttons.addEventListener('click', () => {
-    playRound();
-});
+// buttons.addEventListener('click', () => {
+//     if (buttons.id) {
+//         playRound(buttons.id);
+//     }
+// });
 
 
 // // This function logs and displays winners in the console
