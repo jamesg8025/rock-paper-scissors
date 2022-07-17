@@ -1,6 +1,6 @@
 const choices = ['rock', 'paper', 'scissors'];
 // Create empty array to log winners
-const winners = [];
+let winners = [];
 
 // reset values
 function resetGame() {
