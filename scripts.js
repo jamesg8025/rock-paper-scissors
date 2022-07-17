@@ -7,7 +7,7 @@ function resetGame() {
     winners = [];
     document.querySelector('.playerScore').textContent = 'Score: 0';
     document.querySelector('.computerScore').textContent = 'Score: 0';
-    document.querySelector('.draws').textContent = 'Score: 0';
+    document.querySelector('.draws').textContent = 'Draws: 0';
     document.querySelector('.winner').textContent = '';
     document.querySelector('.playerSelection').textContent = '';
     document.querySelector('.computerSelection').textContent = '';
@@ -96,10 +96,10 @@ function displayRoundWinner (winner) {
 function tallyWins() {
     const pWinCount = winners.filter((item) => item == 'Player').length;
     const cWinCount = winners.filter((item) => item == 'Computer').length;
-    const draws = winners.filter((item) => item == 'Tie').length;
+    const draws = winners.filter((item) => item == 'Draw').length;
     document.querySelector('.playerScore').textContent = `Score: ${pWinCount}`;
     document.querySelector('.computerScore').textContent = `Score: ${cWinCount}`;
-    document.querySelector('.draws').textContent = `Score: ${draws}`;
+    document.querySelector('.draws').textContent = `Draws: ${draws}`;
 }
 
 function checkWins() {
@@ -175,7 +175,7 @@ function checkWinner(choice1, choice2) {
 function setWins() {
     const pWinCount = winners.filter((item) => item == 'Player').length;
     const cWinCount = winners.filter((item) => item == 'Computer').length;
-    const draws = winners.filter((item) => item == 'Tie').length;
+    const draws = winners.filter((item) => item == 'Draw').length;
 }
 
 // const buttons = document.querySelectorAll('button');
