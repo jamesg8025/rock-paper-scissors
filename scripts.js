@@ -52,9 +52,31 @@ function playRound(playerSelection) {
     tallyWins();
     // Function displays what each player chose
     displayRound(playerSelection, computerSelection, winner);
+    wins = checkWins();
+    if (wins == 5) {
+        // display end results
+        displayEnd();
+        // change the button to visible
+        // change the text to display winner
+    }
 }
 
+function displayEnd() {
+    let playerWins = winners.filter((item) => item == 'Player').length;
+    if (playerWins == 5) {
+        document.querySelector('.winner').textContent = 'Congratulations, You Won The Game!!!'
+    } else {
+        document.querySelector('.winner').textContent = 'Sorry, The Computer Won The Game!'
+    }
+    document. querySelector('.reset').style.display = 'flex';
+}
 
+function displayRound(playerSelection, computerSelection, winner) {
+    document.querySelector('.playerSelection').textContent = `You Chose ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)}`;
+    document.querySelector('.computerSelection').textContent = `Computer Chose ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)}`;
+    // document.querySelector('.draws').textContent = `Draws: ${draws}`;
+    document.querySelector('.winner').textContent = `Round Winner: ${winner}`;
+}
 
 function tallyWins() {
     const pWinCount = winners.filter((item) => item == 'Player').length;
