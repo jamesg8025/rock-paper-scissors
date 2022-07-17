@@ -1,12 +1,17 @@
+const choices = ['rock', 'paper', 'scissors'];
 // Create empty array to log winners
-const winners = []
+const winners = [];
 
-let playerScore = 0;
-let computerScore = 0;
-
-// reset game
+// reset values
 function resetGame() {
-
+    winners = [];
+    document.querySelector('.playerScore').textContent = 'Score: 0';
+    document.querySelector('.computerScore').textContent = 'Score: 0';
+    document.querySelector('.draws').textContent = 'Score: 0';
+    document.querySelector('.winner').textContent = '';
+    document.querySelector('.playerSelection').textContent = '';
+    document.querySelector('.computerSelection').textContent = '';
+    document.querySelector('.reset').style.display = 'none';
 }
 
 // Play game until someone wins 5 times
@@ -42,10 +47,8 @@ function playRound(playerSelection) {
     }
 
     const computerSelection = computerPlay();
-    console.log('Computer chose:', computerSelection);
-    const roundWinner = checkRoundWin(playerSelection, computerSelection);
-    console.log(roundWinner);
-    const winner = checkRoundWin(playerSelection, computerSelection);
+    // console.log('Computer chose:', computerSelection);
+    const winner = checkWinner(playerSelection, computerSelection);
     // This function pushes a new winner into the winners array
     winners.push(winner);
     // This function updates scores
@@ -76,6 +79,18 @@ function displayRound(playerSelection, computerSelection, winner) {
     document.querySelector('.computerSelection').textContent = `Computer Chose ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)}`;
     // document.querySelector('.draws').textContent = `Draws: ${draws}`;
     document.querySelector('.winner').textContent = `Round Winner: ${winner}`;
+    // Displays a better formatted message
+    displayRoundWinner(winner);
+}
+
+function displayRoundWinner (winner) {
+    if (winner == 'Player') {
+        document.querySelector('.winner').textContent = 'You Won the Round!'
+    } else if (winner == 'Computer'){
+        document.querySelector('.winner').textContent = 'Computer Won the Round!'
+    } else {
+        document.querySelector('.winner').textContent = 'The Round was a Draw.'
+    }
 }
 
 function tallyWins() {
@@ -102,43 +117,58 @@ function computerPlay() {
 }
 
 // Take the user's entry and compare to computer's entry to see who wins after a single round
-function checkRoundWin(choiceP, choiceC) {
-    // Win/loss case messages
-    const lose1 = 'You Lose! Paper beats Rock!'
-    const lose2 = 'You Lose! Rock beats Scissors'
-    const lose3 = 'You Lose! Scissors beats Paper!'
-    const win1 = 'You Win! Paper beats Rock!'
-    const win2 = 'You Win! Rock beats Scissors'
-    const win3 = 'You Win! Scissors beats Paper!'
-    const draw = 'Draw! You both picked the same!'
+// function checkRoundWin(choiceP, choiceC) {
+//     // Win/loss case messages
+//     const lose1 = 'You Lose! Paper beats Rock!'
+//     const lose2 = 'You Lose! Rock beats Scissors'
+//     const lose3 = 'You Lose! Scissors beats Paper!'
+//     const win1 = 'You Win! Paper beats Rock!'
+//     const win2 = 'You Win! Rock beats Scissors'
+//     const win3 = 'You Win! Scissors beats Paper!'
+//     const draw = 'Draw! You both picked the same!'
 
-    // Win/Loss if cases also increment scores
-    if (choiceP === 'rock' && choiceC === 'paper') {
-        computerScore++;
-        return lose1;
-    }
-    if (choiceP === 'scissors' && choiceC === 'rock') {
-        computerScore++;
-        return lose2;
-    }
-    if (choiceP === 'paper' && choiceC === 'scissors') {
-        computerScore++;
-        return lose3;
-    }
-    if (choiceP === 'paper' && choiceC === 'rock') {
-        playerScore++;
-        return win1;
-    }
-    if (choiceP === 'rock' && choiceC === 'scissors') {
-        playerScore++;
-        return win2;
-    }
-    if (choiceP === 'scissors' && choiceC === 'paper') {
-        playerScore++;
-        return win3;
-    }
-    if (choiceP === choiceC) {
-        return draw;
+//     // Win/Loss if cases also increment scores
+//     if (choiceP === 'rock' && choiceC === 'paper') {
+//         computerScore++;
+//         return lose1;
+//     }
+//     if (choiceP === 'scissors' && choiceC === 'rock') {
+//         computerScore++;
+//         return lose2;
+//     }
+//     if (choiceP === 'paper' && choiceC === 'scissors') {
+//         computerScore++;
+//         return lose3;
+//     }
+//     if (choiceP === 'paper' && choiceC === 'rock') {
+//         playerScore++;
+//         return win1;
+//     }
+//     if (choiceP === 'rock' && choiceC === 'scissors') {
+//         playerScore++;
+//         return win2;
+//     }
+//     if (choiceP === 'scissors' && choiceC === 'paper') {
+//         playerScore++;
+//         return win3;
+//     }
+//     if (choiceP === choiceC) {
+//         return draw;
+//     }
+// }
+
+// Determine winner of a round
+function checkWinner(choice1, choice2) {
+    if (
+        (choice1 == "rock" && choice2 == "scissors") ||
+        (choice1 == "scissors" && choice2 == "paper") ||
+        (choice1 == "paper" && choice2 == "rock")
+    ) {
+        return "Player";
+    } else if (choice1 == choice2) {
+        return "Draw";
+    } else {
+        return "Computer";
     }
 }
 
