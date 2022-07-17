@@ -16,27 +16,15 @@ function resetGame() {
 
 // Play game until someone wins 5 times
 function startGame() {
-    // this will grab all button tags in html
-    let buttons = document.querySelectorAll('button');
-    buttons.forEach((button) => 
-    button.addEventListener(('click'), () => {
-        if (button.id) {
-            playRound(button.id);
+    // this will grab all img tags in html
+    let imgs = document.querySelectorAll('img');
+    imgs.forEach((img) => 
+    img.addEventListener(('click'), () => {
+        if (img.id) {
+            playRound(img.id);
         }
     }))
 }
-
-// // Play game until someone wins 5 times
-// function game() {
-//     // Compare the two scores after five rounds and determine who won the game
-//     if (playerScore < computerScore) {
-//         console.log('Sorry! Computer wins the game!');
-//     } else if (playerScore > computerScore){
-//         console.log('Congrats! You win the game!');
-//     } else {
-//         console.log('Tie!');
-//     }
-// }
 
 // Plays one round and determines winner after
 function playRound(playerSelection) {
@@ -112,7 +100,14 @@ function checkWins() {
 function computerPlay() {
     // TODO: update DOM with computer selection
     // Randomly select from choices array
-    let computerChoice = choices[Math.floor(Math.random() * choices.length)];
+    const computerChoice = choices[Math.floor(Math.random() * choices.length)];
+    // to temporarily change computer's choice class for css
+    document.querySelector(`.${computerChoice}`).classList.add('active');
+
+    setTimeout(() => {
+        document.querySelector(`.${computerChoice}`).classList.remove('active');
+    }, 700);
+
     return computerChoice;
 }
 
