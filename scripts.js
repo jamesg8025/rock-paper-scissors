@@ -5,8 +5,8 @@ let winners = [];
 // reset values
 function resetGame() {
     winners = [];
-    document.querySelector('.playerScore').textContent = 'Score: 0';
-    document.querySelector('.computerScore').textContent = 'Score: 0';
+    document.querySelector('.playerScore').textContent = 'Your Score: 0';
+    document.querySelector('.computerScore').textContent = 'Computer Score: 0';
     document.querySelector('.draws').textContent = 'Draws: 0';
     document.querySelector('.winner').textContent = '';
     document.querySelector('.playerSelection').textContent = '';
@@ -85,8 +85,8 @@ function tallyWins() {
     const pWinCount = winners.filter((item) => item == 'Player').length;
     const cWinCount = winners.filter((item) => item == 'Computer').length;
     const draws = winners.filter((item) => item == 'Draw').length;
-    document.querySelector('.playerScore').textContent = `Score: ${pWinCount}`;
-    document.querySelector('.computerScore').textContent = `Score: ${cWinCount}`;
+    document.querySelector('.playerScore').textContent = `Your Score: ${pWinCount}`;
+    document.querySelector('.computerScore').textContent = `Computer Score: ${cWinCount}`;
     document.querySelector('.draws').textContent = `Draws: ${draws}`;
 }
 
